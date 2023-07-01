@@ -1,9 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var uppercaseChars = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
-var lowercaseChars = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
-var numbersChars = "0,1,2,3,4,5,6,7,8,9";
-var specialChars = "!,@,#,$,%,&,*,^,?,(),{},++,<>,[],{],'{,";
+var lowercaseChars = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
+var uppercaseChars = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,OP,Q,R,S,T,U,V,W,X,Y,Z";
+var numericChars = "0,1,2,3,4,5,6,7,8,9";
+var specialChars = "!,@,#,$,%,^,&,*,(),_,+,-,=,[],{},|,;,:,.,<>,?,";
 
 // Write password to the #password input
 function writePassword() {
@@ -13,46 +13,70 @@ function writePassword() {
     passwordText.value = password;
 }
 
+// Generate password based on selected criteria
 function generatePassword() {
-    var passwordLength = prompt("Enter a good password that ranges from 8 to 128");
+    var passwordLength = prompt("Pick a number from 8 to 128:");
+
     if (passwordLength < 8 || passwordLength > 128) {
-        alert("The password didn't meet the required length between 8 and 128. Follow the rules, Buddy!")
-        return '';
+        alert(
+            "Invalid password length. Please enter a length between 8 and 128."
+        );
+        return "";
     }
-    var includeLowercase = confirm('Add lowercase chracters? it adds more protection!')
-    var includeUppercase = confirm("Add uppercase characters? studys show adding these improves proctection");
-    var includeNumbers= confirm("Add numbers chracters to password?");
-    var includeSpecial = confirm("Do you like to use specials chars in password?");
 
-    
-  var chars = "";
+    var includeLowercase = confirm("Would you like lowercase characters?");
+    var includeUppercase = confirm("Would you like uppercase characters?");
+    var includeNumeric = confirm("Would you numeric characters?");
+    var includeSpecial = confirm("Would you like special characters?");
+    var selectedTypes = [];
 
-  if (includeLowercase) {
-    chars += lowercaseChars;
-  }
+    if (includeLowercase) {
+        selectedTypes.push("lowercase");
+    }
 
-  if (includeUppercase) {
-    chars += uppercaseChars;
-  }
+    if (includeUppercase) {
+        selectedTypes.push("uppercase");
+    }
 
-  if (includeNumeric) {
-    chars += numericChars;
-  }
+    if (includeNumeric) {
+        selectedTypes.push("numeric");
+    }
 
-  if (includeSpecial) {
-    chars += specialChars;
-  }
+    if (includeSpecial) {
+        selectedTypes.push("special");
+    }
 
-  var password = "";
+    if (selectedTypes.length === 0) {
+        alert("Buddy, you need atleast one character thing!.");
+        return "";
+    }
 
-  for (var i = 0; i < passwordLength; i++) {
-    var randomIndex = Math.floor(Math.random() * chars.length);
-    password += chars.charAt(randomIndex);
-  }
+    var chars = "";
 
-  return password;
-}
+    if (includeLowercase) {
+        chars += lowercaseChars;
+    }
 
+    if (includeUppercase) {
+        chars += uppercaseChars;
+    }
+
+    if (includeNumeric) {
+        chars += numericChars;
+    }
+
+    if (includeSpecial) {
+        chars += specialChars;
+    }
+
+    var password = "";
+
+    for (var i = 0; i < passwordLength; i++) {
+        var randomIndex = Math.floor(Math.random() * chars.length);
+        password += chars.charAt(randomIndex);
+    }
+
+    return password;
 }
 
 // Add event listener to generate button
