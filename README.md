@@ -3,8 +3,10 @@
 
 ## Description
 
-I was given starter code that I needed to add features to it to make it function as the client wanted. When I have completed my task the app should give the client a random password.
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+As a user who is tired of generating my own passwords,
+I want to use an application that can generate secure passwords for me.
+Therefore, I approached the client who suggested using Chat GPT to fulfill this requirement.
+
 
 ## User Story
 
@@ -39,6 +41,28 @@ For top sercret projects
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
     ```md
-    ![alt text](assets/images/screenshot.png)
+  
+    ![Alt text](Assets/password.png)
+    
     ```
 
+## Technology
+HTML
+CSS
+JavaScript
+
+Installation
+Clone the repository: git clone git@github.com:DayesCamara/Whats-my-password-again.git
+Navigate to the project directory: cd your-repo
+Open the index.html file in your preferred web browser.
+
+## How to run
+How to Run
+To run the application, simply open the index.html file in your web browser. The application will load, and you can then follow the on-screen prompts to generate a secure password.
+
+## Development Process
+During the development of this project, the following steps were undertaken:
+Analyzed the requirements and user expectations.
+Designed the user interface and password generation logic.
+Implemented the necessary HTML, CSS, and JavaScript code.
+Collaborated with the client to address feedback and make necessary improvements.
